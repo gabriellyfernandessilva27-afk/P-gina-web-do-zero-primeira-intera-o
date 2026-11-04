@@ -1,295 +1,502 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Blog Minecraft</title>
-
+    <title>Blog Minecraft - Como Zerar</title>
+    
     <style>
-
+        
         body {
-            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Verdana, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 15px;
-            font-family: sans-serif;
+            padding: 0;
+            background-color: #f3f5f2;
+            color: #2b3528;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         header {
-            background-color: #abe1af;
-            color: #1e4d25;
+            background-color: #526649;
+            color: #ffffff;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-            padding: 16px;
-            border: 5px solid #499a56;
-            box-sizing: border-box;
+            padding: 35px 15px 25px 15px;
+            box-shadow: 0 4px 12px rgba(43, 53, 40, 0.15);
+            transition: background-color 0.3s ease;
         }
 
         header img {
-            max-width: 100%;
-            width: 400px;
+            width: 100%;
+            max-width: 420px; 
             height: auto;
-        }
-
-        main {
-            background-color: #e9f5ea;
-            color: #4b9155;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 16px;
-            box-sizing: border-box;
-        }
-
-        .artigo-autor {
-            font-weight: bold;
-        }
-
-        button {
-            margin: 5px;
-            padding: 8px 12px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.45)) 
+                    drop-shadow(0 0 20px rgba(255, 255, 255, 0.25));
+            transition: transform 0.3s ease, filter 0.3s ease;
             cursor: pointer;
         }
 
-        .conteudo {
-            margin-top: 30px;
+        header img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.55)) 
+                    drop-shadow(0 0 28px rgba(255, 255, 255, 0.4));
         }
 
-        .conteudo h1 {
-            color: #1e4d25;
+        header h1 {
+            margin: 10px 0 5px 0;
+            font-size: 1.8rem;
         }
 
-        .conteudo h2 {
-            color: #34763d;
-            margin-top: 25px;
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
         }
 
-        .conteudo p {
-            color: #333;
-            line-height: 1.6;
+        main {
+            background-color: #e4e9e2;
+            padding: 35px 20px;
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: calc(100vh - 180px);
+            transition: background-color 0.3s ease;
         }
 
-        .conteudo li {
-            color: #333;
-            margin-bottom: 6px;
+        article {
+            background-color: #ffffff;
+            color: #2b3528;
+            border-radius: 14px;
+            padding: 22px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 12px rgba(82, 102, 73, 0.08);
+            border: 1px solid #c8d3c5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        article:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(82, 102, 73, 0.15);
+        }
+
+        article h2 {
+            color: #394733;
+            margin-top: 10px;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .artigo-autor {
+            color: #617358;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .tag-etapa {
+            background-color: #394733;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+
+        li, p {
             line-height: 1.5;
+            color: #33402e;
+            font-size: 0.93rem;
         }
 
-        hr {
+        li {
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .resumo-box {
+            background: rgba(255, 255, 255, 0.7);
+            border-left: 4px solid #526649;
+            padding: 10px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        .botoes-container {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #f0f3ef;
+        }
+
+        article button {
+            cursor: pointer;
+            padding: 8px 14px;
             border: none;
-            border-top: 2px solid #abe1af;
-            margin: 30px 0;
+            border-radius: 8px;
+            background-color: #526649;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
+        article button:hover {
+            background-color: #3f5037;
+            transform: translateY(-1px);
+        }
+
+        article button:active {
+            transform: translateY(0);
+        }
+
+        article button span {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin-left: 3px;
+        }
+
+        .btn-tema-flutuante {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 3px solid #526649;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 0;
+            transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-tema-flutuante:hover {
+            transform: scale(1.1);
+        }
+
+        .icone-circulo-divido {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #394733 50%, #ffffff 50%);
+            border: 2px solid #394733;
+            box-sizing: border-border;
+        }
+
+        body.dark-mode {
+            background-color: #181c17;
+            color: #d8e0d5;
+        }
+
+        body.dark-mode header {
+            background-color: #273322;
+        }
+
+        body.dark-mode main {
+            background-color: #121511;
+        }
+
+        body.dark-mode article {
+            background-color: #1f261d;
+            color: #d8e0d5;
+            border-color: #313d2e;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-mode article h2 {
+            color: #8da383;
+        }
+
+        body.dark-mode .artigo-autor {
+            color: #728c66;
+        }
+
+        body.dark-mode li, 
+        body.dark-mode p {
+            color: #c4d0c1;
+        }
+
+        body.dark-mode .resumo-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-left-color: #8da383;
+            color: #c4d0c1;
+        }
+
+        body.dark-mode .botoes-container {
+            border-top-color: #2c3829;
+        }
+
+        body.dark-mode .btn-tema-flutuante {
+            background-color: #1f261d;
+            border-color: #8da383;
+        }
+
+        body.dark-mode .icone-circulo-divido {
+            background: linear-gradient(90deg, #ffffff 50%, #1f261d 50%);
+            border-color: #ffffff;
+        }
     </style>
-
 </head>
-
 <body>
 
-
-
     <header>
-
-        <img src="15-2-minecraft-logo-png.png" alt="Logo do Minecraft">
-
-        <h1>Meu blog de como zerar o MINECRAFT</h1>
-
+        <img src="15-2-minecraft-logo-png.png" alt="Logo do Minecraft" onerror="this.style.display='none'">
+        <h1>Meu Blog de como zerar o MINECRAFT</h1>
+        <p>Dicas e estratégias para dominar o jogo do início ao fim</p>
     </header>
 
-
     <main>
-
-
+        
         <article>
-
-            <h1>Vou compartilhar conhecimentos de como zerar o Minecraft</h1>
-
-            <p class="artigo-autor">
-                Por: Gabby F.
-            </p>
-
-
-            <button>
-                🏹 ⛏ ⚒️ <span>0</span>
-            </button>
-
-            <button>
-                👌 👍 <span>0</span>
-            </button>
-
+            <div>
+                <span class="tag-etapa">Início</span>
+                <h2>Apresentação do Guia</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <p>Boas-vindas ao meu guia! Zerar o Minecraft pode parecer difícil no começo porque o jogo não explica o que fazer. Siga os cards abaixo passo a passo!</p>
+            </div>
+            
+            <div class="botoes-container">
+                <button>🏹 ⛏ ⚒️ <span>0</span></button>
+                <button>👌 👍 <span>0</span></button>
+            </div>
         </article>
 
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 01</span>
+                <h2>1. Pegue madeira</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>Comece quebrando algumas árvores com a mão.</li>
+                    <li>Transforme a madeira em tábuas e faça uma bancada de trabalho.</li>
+                    <li>Crie uma picareta de madeira para conseguir pedra.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 02</span>
+                <h2>2. Pegue pedra e comida</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>Consiga pedra e faça ferramentas melhores (picareta, espada, machado).</li>
+                    <li>Procure animais para conseguir comida.</li>
+                    <li>Faça uma fornalha para cozinhar a carne.</li>
+                    <li>Pegue carvão para fazer tochas.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
-        <article class="conteudo">
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 03</span>
+                <h2>3. Faça uma base</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>Construa uma casa simples para guardar seus itens.</li>
+                    <li>Coloque uma cama, baús, fornalhas e uma bancada.</li>
+                    <li>Se puder, faça também uma pequena plantação e crie animais.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
-            <hr>
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 04</span>
+                <h2>4. Consiga ferro</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>Explore cavernas e procure minério de ferro.</li>
+                    <li>Coloque o minério na fornalha para fazer barras.</li>
+                    <li>Faça uma armadura de ferro, picareta, espada, escudo e balde.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
-            <h1>Como Zerar o Minecraft Passo a Passo</h1>
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 05</span>
+                <h2>5. Procure diamantes</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>Continue explorando cavernas e regiões profundas.</li>
+                    <li>Ao encontrar diamantes, faça primeiro uma picareta.</li>
+                    <li>Tente conseguir uma armadura completa de diamante.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
-            <p>
-                Zerar o Minecraft pode parecer difícil quando você começa um mundo novo,
-                principalmente porque o jogo não fala exatamente o que você precisa fazer.
-                No começo, você não tem praticamente nada e precisa ir atrás de madeira,
-                pedra, comida, ferro e vários outros materiais para conseguir ficar mais forte.
-            </p>
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 06</span>
+                <h2>6. Fique mais forte</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>Faça uma mesa de encantamentos.</li>
+                    <li>Consiga experiência e encante seus equipamentos.</li>
+                    <li>Encantamentos como Proteção, Inquebrável e Eficiência ajudam muito.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 07</span>
+                <h2>7. Vá para o Nether</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>Faça um Portal do Nether usando obsidiana.</li>
+                    <li>Entre preparado com comida, armadura, escudo e blocos.</li>
+                    <li>Procure uma Fortaleza do Nether.</li>
+                    <li>Derrote Blazes para conseguir varas de Blaze.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
-            <h2>1. Pegue madeira</h2>
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 08</span>
+                <h2>8. Consiga Olhos de Ender</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>Procure Endermans e consiga Pérolas de Ender.</li>
+                    <li>Junte as pérolas com Pó de Blaze para criar Olhos de Ender.</li>
+                    <li>Eles servem para localizar a Fortaleza do End.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
-            <ul>
-                <li>Comece quebrando algumas árvores com a mão.</li>
-                <li>Transforme a madeira em tábuas e faça uma bancada de trabalho.</li>
-                <li>Crie uma picareta de madeira para conseguir pedra.</li>
-            </ul>
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 09</span>
+                <h2>9. Encontre o Portal do End</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>Jogue um Olho de Ender e siga a direção indicada.</li>
+                    <li>Encontre a Fortaleza e procure a sala do portal.</li>
+                    <li>Complete o portal encaixando os Olhos de Ender.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
+        <article>
+            <div>
+                <span class="tag-etapa">Passo 10</span>
+                <h2>10. Derrote o Dragão</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <ul>
+                    <li>No End, destrua primeiro os cristais das torres.</li>
+                    <li>Ataque o Dragão do End com arco enquanto ele voa.</li>
+                    <li>Quando ele pousar, ataque com a espada até derrotá-lo.</li>
+                </ul>
+            </div>
+            <div class="botoes-container">
+                <button>⚔️ Curtir <span>0</span></button>
+            </div>
+        </article>
 
-            <h2>2. Pegue pedra e comida</h2>
-
-            <ul>
-                <li>Consiga pedra e faça ferramentas melhores, como picareta, espada e machado.</li>
-                <li>Procure animais para conseguir comida.</li>
-                <li>Faça uma fornalha para cozinhar a carne.</li>
-                <li>Pegue carvão para fazer tochas.</li>
-            </ul>
-
-
-            <h2>3. Faça uma base</h2>
-
-            <ul>
-                <li>Construa uma casa simples para guardar seus itens.</li>
-                <li>Coloque uma cama, baús, fornalhas e uma bancada.</li>
-                <li>Se puder, faça também uma pequena plantação e um espaço para criar animais.</li>
-            </ul>
-
-
-            <h2>4. Consiga ferro</h2>
-
-            <ul>
-                <li>Explore cavernas e procure minério de ferro.</li>
-                <li>Coloque o minério na fornalha para fazer barras.</li>
-                <li>Faça uma armadura de ferro, uma picareta, uma espada, um escudo e um balde.</li>
-            </ul>
-
-
-            <h2>5. Procure diamantes</h2>
-
-            <ul>
-                <li>Continue explorando cavernas e regiões profundas.</li>
-                <li>Quando encontrar diamantes, faça principalmente uma picareta e depois equipamentos melhores.</li>
-                <li>Tente conseguir uma armadura completa de diamante.</li>
-            </ul>
-
-
-            <h2>6. Fique mais forte</h2>
-
-            <ul>
-                <li>Faça uma mesa de encantamentos.</li>
-                <li>Consiga experiência e encante sua armadura, espada e ferramentas.</li>
-                <li>Encantamentos como Proteção, Inquebrável e Eficiência ajudam bastante.</li>
-            </ul>
-
-
-            <h2>7. Vá para o Nether</h2>
-
-            <ul>
-                <li>Faça um Portal do Nether usando obsidiana.</li>
-                <li>Entre preparado, levando comida, armadura, espada, escudo e blocos.</li>
-                <li>Procure uma Fortaleza do Nether.</li>
-                <li>Derrote Blazes para conseguir varas de Blaze.</li>
-            </ul>
-
-
-            <h2>8. Consiga Olhos de Ender</h2>
-
-            <ul>
-                <li>Procure Endermans e consiga Pérolas de Ender.</li>
-                <li>Junte as pérolas com Pó de Blaze para fazer Olhos de Ender.</li>
-                <li>Eles serão usados para encontrar a Fortaleza.</li>
-            </ul>
-
-
-            <h2>9. Encontre o Portal do End</h2>
-
-            <ul>
-                <li>Jogue um Olho de Ender e siga a direção indicada.</li>
-                <li>Continue fazendo isso até encontrar a Fortaleza.</li>
-                <li>Dentro dela, procure a sala do Portal do End.</li>
-                <li>Complete o portal usando os Olhos de Ender.</li>
-            </ul>
-
-
-            <h2>10. Derrote o Dragão</h2>
-
-            <ul>
-                <li>Antes de entrar, prepare sua armadura, espada, arco, comida e outros itens.</li>
-                <li>No End, destrua primeiro os cristais das torres.</li>
-                <li>Ataque o Dragão do End com arco enquanto ele estiver voando.</li>
-                <li>Quando ele pousar, ataque com a espada.</li>
-                <li>Continue até a vida dele acabar.</li>
-            </ul>
-
-
-            <h2>11. Minecraft zerado</h2>
-
-            <p>
-                Depois que o Dragão morrer, entre no portal que aparece no centro da ilha.
-                Os créditos vão aparecer e você poderá considerar que zerou o Minecraft.
-            </p>
-
-            <p>
-                Mesmo assim, ainda dá para fazer muita coisa depois, como encontrar a Elytra,
-                procurar Netherite, construir uma base enorme, fazer farms e continuar explorando o mundo.
-            </p>
-
-
-            <h2>Resumindo</h2>
-
-            <p>
-                <strong>
-                    Madeira → Pedra → Comida → Ferro → Base → Diamantes →
-                    Encantamentos → Nether → Fortaleza → Blaze → Pérolas de Ender →
-                    Olhos de Ender → Fortaleza do End → Dragão → Minecraft zerado.
-                </strong>
-            </p>
-
+        <article>
+            <div>
+                <span class="tag-etapa">Passo Final</span>
+                <h2>11. Minecraft Zerado!</h2>
+                <p class="artigo-autor"><strong>Por:</strong> Gabby F.</p>
+                <p>Entre no portal do centro para ver os créditos! Depois ainda dá para buscar a Elytra, achar Netherite e criar grandes construções.</p>
+                
+                <div class="resumo-box">
+                    <strong>Resumo rápido:</strong><br>
+                    Madeira → Pedra → Comida → Ferro → Base → Diamantes → Nether → Olhos de Ender → Portal → Dragão!
+                </div>
+            </div>
+            <div class="botoes-container">
+                <button>🏆 Zerado! <span>0</span></button>
+            </div>
         </article>
 
     </main>
 
+    <button id="theme-toggle" class="btn-tema-flutuante" aria-label="Alternar modo claro e escuro">
+        <span class="icone-circulo-divido"></span>
+    </button>
 
     <script>
+     
+        const botoesCurtir = document.querySelectorAll("article button");
 
-        const botoes = document.querySelectorAll("button");
-
-        botoes.forEach(function (botao) {
-
+        botoesCurtir.forEach(function (botao) {
             let curtiu = false;
 
             botao.addEventListener("click", function () {
-
                 const texto = botao.querySelector("span");
+                let valorAtual = parseInt(texto.textContent);
 
-                if (curtiu === false) {
-
-                    texto.textContent++;
+                if (!curtiu) {
+                    texto.textContent = valorAtual + 1;
                     curtiu = true;
-
                 } else {
-
-                    texto.textContent--;
+                    texto.textContent = valorAtual - 1;
                     curtiu = false;
-
                 }
-
             });
-
         });
 
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        
+        themeToggleBtn.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+        });
     </script>
-
 </body>
-
 </html>
