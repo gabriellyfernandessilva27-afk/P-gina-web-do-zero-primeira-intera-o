@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #e8f5e9;
+    color: #263b29;
+    transition: background 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+/* CABEÇALHO */
+header {
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header img {
+    width: 180px;
+    max-width: 80%;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* CARDS */
+article {
+    background: white;
+    padding: 25px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    border-left: 6px solid #43a047;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.2s, box-shadow 0.2s,
+                background 0.3s;
+}
+
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 7px 18px rgba(0,0,0,0.15);
+}
+
+article h2 {
+    color: #2e7d32;
+    margin: 10px 0;
+}
+
+article p {
+    margin-bottom: 10px;
+}
+
+article ul {
+    padding-left: 22px;
+}
+
+article li {
+    margin-bottom: 6px;
+}
+
+
+.tag-etapa {
+    display: inline-block;
+    background: #c8e6c9;
+    color: #1b5e20;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.artigo-autor {
+    color: #777;
+    font-size: 13px;
+}
+
+.botoes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.botoes-container button {
+    border: none;
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.botoes-container button:hover {
+    background: #a5d6a7;
+    transform: scale(1.05);
+}
+
+.botoes-container button.curtiu {
+    background: #2e7d32;
+    color: white;
+}
+
+.resumo-box {
+    background: #e8f5e9;
+    border-left: 4px solid #43a047;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 6px;
+}
+
+
+.btn-tema-flutuante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: #2e7d32;
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+.btn-tema-flutuante:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+
+.icone-circulo-divido::before {
+    content: "🌙";
+}
+
+body.dark-mode {
+    background: #18251b;
+    color: #e0e0e0;
+}
+
+body.dark-mode header {
+    background: linear-gradient(135deg, #102d18, #245b30);
+}
+
+body.dark-mode article {
+    background: #26382b;
+    border-left-color: #81c784;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body.dark-mode article h2 {
+    color: #81c784;
+}
+
+body.dark-mode .artigo-autor {
+    color: #bdbdbd;
+}
+
+body.dark-mode .tag-etapa {
+    background: #355b3b;
+    color: #c8e6c9;
+}
+
+body.dark-mode .botoes-container button {
+    background: #355b3b;
+    color: white;
+}
+
+body.dark-mode .botoes-container button.curtiu {
+    background: #81c784;
+    color: #18351e;
+}
+
+body.dark-mode .resumo-box {
+    background: #355b3b;
+    border-left-color: #81c784;
+}
+
+body.dark-mode .btn-tema-flutuante {
+    background: #fbc02d;
+}
+
+body.dark-mode .icone-circulo-divido::before {
+    content: "☀️";
+}
+
+@media (max-width: 650px) {
+    header h1 {
+        font-size: 23px;
+    }
+
+    article {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .botoes-container {
+        width: 100%;
+    }
+
+    .botoes-container button {
+        flex: 1;
+    }
+
+    main {
+        padding: 0 12px;
+    }
+}
